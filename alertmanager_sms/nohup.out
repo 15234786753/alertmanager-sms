@@ -1,0 +1,156 @@
+[03/Dec/2019 08:24:51] "POST /sms/?username=lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:25:30] "POST /sms/?username=lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:25:31] "POST /sms/?username=houkailong HTTP/1.1" 200 2
+[03/Dec/2019 08:26:33] "POST /sms/?username=lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:26:34] "POST /sms/?username=houkailong HTTP/1.1" 200 2
+[03/Dec/2019 08:27:52] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:28:52] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:29:52] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:30:34] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:31:25] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:31:34] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:32:25] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:32:34] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:33:26] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:33:34] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:34:25] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:34:34] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:35:07] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:36:07] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:37:07] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:37:38] "POST /sms/?username=lishaopeng|wangkai HTTP/1.1" 200 2
+[03/Dec/2019 08:38:38] "POST /sms/?username=lishaopeng|wangkai HTTP/1.1" 200 2
+[03/Dec/2019 08:39:37] "POST /sms/?username=lishaopeng|wangkai HTTP/1.1" 200 2
+[03/Dec/2019 08:40:37] "POST /sms/?username=lishaopeng|wangkai HTTP/1.1" 200 2
+[03/Dec/2019 08:41:37] "POST /sms/?username=lishaopeng|wangkai HTTP/1.1" 200 2
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+December 03, 2019 - 08:22:58
+Django version 1.11.22, using settings 'alertmanager_sms.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7fd4b17854d0>
+Traceback (most recent call last):
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/commands/runserver.py", line 124, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 256, in check
+    for pattern in self.url_patterns:
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 407, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 400, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/python3/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/data/alertmanager-0.16.1.linux-amd64/alertmanager_sms/alertmanager_sms/urls.py", line 18, in <module>
+    from sms import views
+  File "/data/alertmanager-0.16.1.linux-amd64/alertmanager_sms/sms/views.py", line 104
+    print(phone)
+               ^
+TabError: inconsistent use of tabs and spaces in indentation
+Performing system checks...
+
+Unhandled exception in thread started by <function check_errors.<locals>.wrapper at 0x7f76643d44d0>
+Traceback (most recent call last):
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/autoreload.py", line 228, in wrapper
+    fn(*args, **kwargs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/commands/runserver.py", line 124, in inner_run
+    self.check(display_num_errors=True)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/base.py", line 359, in check
+    include_deployment_checks=include_deployment_checks,
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/management/base.py", line 346, in _run_checks
+    return checks.run_checks(**kwargs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/registry.py", line 81, in run_checks
+    new_errors = check(app_configs=app_configs)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/urls.py", line 16, in check_url_config
+    return check_resolver(resolver)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/core/checks/urls.py", line 26, in check_resolver
+    return check_method()
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 256, in check
+    for pattern in self.url_patterns:
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 407, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/usr/local/python3/lib/python3.7/site-packages/django/urls/resolvers.py", line 400, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/usr/local/python3/lib/python3.7/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 967, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 677, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/data/alertmanager-0.16.1.linux-amd64/alertmanager_sms/alertmanager_sms/urls.py", line 18, in <module>
+    from sms import views
+  File "/data/alertmanager-0.16.1.linux-amd64/alertmanager_sms/sms/views.py", line 104
+    print(phone)
+               ^
+TabError: inconsistent use of tabs and spaces in indentation
+Performing system checks...
+
+[03/Dec/2019 08:52:57] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:53:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:54:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:55:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:56:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:57:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:58:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 08:59:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:00:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:01:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:02:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:03:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:04:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:05:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:06:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:07:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:08:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:09:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:10:48] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:11:47] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:12:31] "POST /sms/?username=wangkai|lishaopeng|chentao HTTP/1.1" 200 2
+[03/Dec/2019 09:13:24] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:14:24] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:15:24] "POST /sms/?username=wangkai|lishaopeng HTTP/1.1" 200 2
+[03/Dec/2019 09:16:16] "POST /sms/?username=wangkai|lishaopeng|weijia|houkailong HTTP/1.1" 200 2
+[03/Dec/2019 09:18:34] "POST /sms/?username=wangkai|lishaopeng|chentao HTTP/1.1" 200 2
+[03/Dec/2019 09:19:34] "POST /sms/?username=wangkai|lishaopeng|chentao HTTP/1.1" 200 2
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 13 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+December 03, 2019 - 08:53:46
+Django version 1.11.22, using settings 'alertmanager_sms.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
