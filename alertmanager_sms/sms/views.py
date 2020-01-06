@@ -27,7 +27,6 @@ def urlencode(content):
     content = content.encode('gb2312')
     return urllib.quote(content)
 
-
 def main(mobile,msg):
     url = 'http://www.dh3t.com/json/sms/Submit'
     current_time = time.strftime("%m%d%H%M%S", time.localtime(time.time()))
@@ -35,7 +34,6 @@ def main(mobile,msg):
     # mobile = sys.argv[1]
     # msg = sys.argv[2]
     logging.info("mobile: %s, msg: %s" % (mobile, msg))
-
     headers={
         'Content-Type': 'application/json',
     }
@@ -51,12 +49,16 @@ def main(mobile,msg):
     }
 
     logging.info('requests.post: %s' % json.dumps(data))
-    r = requests.post(url, data=json.dumps(data), headers=headers).json()
-    logging.info("send sms response: %s" % r)
+    ret = requests.post(url, data=json.dumps(data), headers=headers).json()
+    logging.info("send sms response: %s" % ret)
+
 
 def sms(request):
+    '''
+    :param request: ?username=wangkai
+    :return: ok
+    '''
 
-    # 获取alertmanager告警数据
     try:
         alert_all = json.loads(request.body.decode('utf-8'))
         alert_app = alert_all['alerts'][0]['labels']['job']
@@ -66,31 +68,36 @@ def sms(request):
         alert_value = alert_all['alerts'][0]['annotations']['value']
         alert_startsAt = alert_all['alerts'][0]['startsAt']
         alert_endsAt = alert_all['alerts'][0]['endsAt']
-
     except Exception as e:
         print('Error:',e)
-        alert_app = '---'
-        alert_item = '---'
-        alert_instance = '---'
-        alert_summary = '---'
-        alert_value = '---'
-        alert_startsAt = '---'
-        alert_endsAt = '---'
-
-    # 告警模板
-    alert_msg = f'''
-    应用名称：{alert_app}
-    告警项目：{alert_item}
-    告警实例：{alert_instance}
-    告警描述：{alert_summary}
-    当前值：{alert_value}
-    开始时间: {alert_startsAt}
-    '''
+        # alert_app = '---'
+        # alert_item = '---'
+        # alert_instance = '---'
+        # alert_summary = '---'
+        # alert_value = '---'
+        # alert_startsAt = '---'
+        # alert_endsAt = '---'
+    else:
+        # 告警模板
+        alert_msg = f'''
+        应用名称：{alert_app}
+        告警项目：{alert_item}
+        告警实例：{alert_instance}
+        告警描述：{alert_summary}
+        当前值：{alert_value}
+        开始时间: {alert_startsAt}
+        '''
     # print(alert_msg)
 
     # 获取姓名对应的手机号
-    person = request.GET.get('username')
-    person_lst = person.split('|')
+    try:
+        person = request.GET.get('username')
+        person_lst = person.split('|')
+    except AttributeError as e:
+        print(f'Error:{e},person:{person_lst}')
+    except Exception as eother:
+        print(eother)
+
     if len(person_lst) == 0:
         person_lst = ['wangkai']
 
@@ -102,7 +109,5 @@ def sms(request):
         conn.search('dc=qdingnet,dc=cn', '(sAMAccountName={})'.format(tel_num), attributes=["telephoneNumber"])
         phone = conn.entries[0].telephoneNumber
         main(str(phone),alert_msg)
-
-
 
     return HttpResponse('ok')

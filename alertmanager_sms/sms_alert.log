@@ -6081,3 +6081,48 @@ IndexError: list index out of range
 2019-12-03 09:19:34,431 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
 2019-12-03 09:19:34,443 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 95
 2019-12-03 09:19:34,443 INFO send sms response: {'msgid': '2c92825934837c4d0134837dcba00150', 'result': '0', 'desc': '鎻愪氦鎴愬姛', 'failPhones': ''}
+2020-01-06 10:32:51,178 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 87, in sms
+    '''
+UnboundLocalError: local variable 'alert_app' referenced before assignment
+2020-01-06 10:38:44,472 INFO mobile: 15234786753, msg: 
+    应用名称：---
+    告警项目：---
+    告警实例：---
+    告警描述：---
+    当前值：---
+    开始时间: ---
+    
+2020-01-06 10:38:44,477 INFO requests.post: {"account": "dh55021", "password": "7253f0c8e6e27e2f242bb4757cbec413", "msgid": "2c92825934837c4d0134837dcba00150", "phones": "15234786753", "content": "\n    \u5e94\u7528\u540d\u79f0\uff1a---\n    \u544a\u8b66\u9879\u76ee\uff1a---\n    \u544a\u8b66\u5b9e\u4f8b\uff1a---\n    \u544a\u8b66\u63cf\u8ff0\uff1a---\n    \u5f53\u524d\u503c\uff1a---\n    \u5f00\u59cb\u65f6\u95f4: ---\n    ", "sign": "\u3010\u5343\u4e01\u3011", "subcode": "", "sendtime": ""}
+2020-01-06 10:38:44,485 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
+2020-01-06 10:38:44,502 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 95
+2020-01-06 10:38:44,503 INFO send sms response: {'msgid': '2c92825934837c4d0134837dcba00150', 'result': '0', 'desc': '提交成功', 'failPhones': ''}
+2020-01-06 10:40:24,787 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 88, in sms
+    '''
+UnboundLocalError: local variable 'alert_app' referenced before assignment
+2020-01-06 10:43:42,618 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 88, in sms
+    '''
+NameError: name 'alert_app' is not defined
