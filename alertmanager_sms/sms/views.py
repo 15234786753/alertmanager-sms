@@ -106,4 +106,4 @@ def sms(request):
         phone = conn.entries[0].telephoneNumber
         main(str(phone),alert_msg)
 
-    return HttpResponse(alert_msg)
+    return HttpResponse('ok')
