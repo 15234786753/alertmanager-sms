@@ -52,14 +52,15 @@ def main(mobile,msg):
     ret = requests.post(url, data=json.dumps(data), headers=headers).json()
     logging.info("send sms response: %s" % ret)
 
-
+alert_msg = None
+alert_all = None
 def sms(request):
     '''
     :param request: ?username=wangkai
     :return: ok
     '''
-
     try:
+        global alert_all
         alert_all = json.loads(request.body.decode('utf-8'))
         alert_app = alert_all['alerts'][0]['labels']['job']
         alert_item = alert_all['alerts'][0]['labels']['alertname']
@@ -70,15 +71,11 @@ def sms(request):
         alert_endsAt = alert_all['alerts'][0]['endsAt']
     except Exception as e:
         print('Error:',e)
-        # alert_app = '---'
-        # alert_item = '---'
-        # alert_instance = '---'
-        # alert_summary = '---'
-        # alert_value = '---'
-        # alert_startsAt = '---'
-        # alert_endsAt = '---'
+        # print(alert_all)
+
     else:
         # 告警模板
+        global alert_msg
         alert_msg = f'''
         应用名称：{alert_app}
         告警项目：{alert_item}
@@ -87,8 +84,7 @@ def sms(request):
         当前值：{alert_value}
         开始时间: {alert_startsAt}
         '''
-    # print(alert_msg)
-
+        print(alert_msg)
     # 获取姓名对应的手机号
     try:
         person = request.GET.get('username')

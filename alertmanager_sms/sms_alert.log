@@ -6126,3 +6126,69 @@ Traceback (most recent call last):
   File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 88, in sms
     '''
 NameError: name 'alert_app' is not defined
+2020-01-06 15:56:00,230 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 111, in sms
+    main(str(phone),alert_msg)
+UnboundLocalError: local variable 'alert_msg' referenced before assignment
+2020-01-06 15:59:44,370 INFO mobile: 15234786753, msg: None
+2020-01-06 15:59:44,372 INFO requests.post: {"account": "dh55021", "password": "7253f0c8e6e27e2f242bb4757cbec413", "msgid": "2c92825934837c4d0134837dcba00150", "phones": "15234786753", "content": null, "sign": "\u3010\u5343\u4e01\u3011", "subcode": "", "sendtime": ""}
+2020-01-06 15:59:44,379 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
+2020-01-06 15:59:44,394 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 53
+2020-01-06 15:59:44,395 INFO send sms response: {'result': '21', 'desc': '数据包/短信内容为空'}
+2020-01-06 16:01:56,201 INFO mobile: 15234786753, msg: None
+2020-01-06 16:01:56,202 INFO requests.post: {"account": "dh55021", "password": "7253f0c8e6e27e2f242bb4757cbec413", "msgid": "2c92825934837c4d0134837dcba00150", "phones": "15234786753", "content": null, "sign": "\u3010\u5343\u4e01\u3011", "subcode": "", "sendtime": ""}
+2020-01-06 16:01:56,207 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
+2020-01-06 16:01:56,222 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 53
+2020-01-06 16:01:56,223 INFO send sms response: {'result': '21', 'desc': '数据包/短信内容为空'}
+2020-01-06 16:02:22,850 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 63, in sms
+    alert_all = json.loads(request.body.decode('utf-8'))
+  File "C:\Python37\lib\json\__init__.py", line 348, in loads
+    return _default_decoder.decode(s)
+  File "C:\Python37\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "C:\Python37\lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 73, in sms
+    print(alert_all)
+UnboundLocalError: local variable 'alert_all' referenced before assignment
+2020-01-06 17:12:47,740 ERROR Internal Server Error: /sms/
+Traceback (most recent call last):
+  File "C:\Python37\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Python37\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "E:\pycharm-data\Qding\alertmanager-sms\alertmanager_sms\sms\views.py", line 109, in sms
+    main(str(phone),alert_msg)
+UnboundLocalError: local variable 'alert_msg' referenced before assignment
+2020-01-06 17:18:14,563 INFO mobile: 15234786753, msg: None
+2020-01-06 17:18:14,563 INFO requests.post: {"account": "dh55021", "password": "7253f0c8e6e27e2f242bb4757cbec413", "msgid": "2c92825934837c4d0134837dcba00150", "phones": "15234786753", "content": null, "sign": "\u3010\u5343\u4e01\u3011", "subcode": "", "sendtime": ""}
+2020-01-06 17:18:14,571 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
+2020-01-06 17:18:14,626 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 53
+2020-01-06 17:18:14,626 INFO send sms response: {'result': '21', 'desc': '数据包/短信内容为空'}
+2020-01-06 17:18:55,858 INFO mobile: 15234786753, msg: None
+2020-01-06 17:18:55,859 INFO requests.post: {"account": "dh55021", "password": "7253f0c8e6e27e2f242bb4757cbec413", "msgid": "2c92825934837c4d0134837dcba00150", "phones": "15234786753", "content": null, "sign": "\u3010\u5343\u4e01\u3011", "subcode": "", "sendtime": ""}
+2020-01-06 17:18:55,866 DEBUG Starting new HTTP connection (1): www.dh3t.com:80
+2020-01-06 17:18:55,930 DEBUG http://www.dh3t.com:80 "POST /json/sms/Submit HTTP/1.1" 200 53
+2020-01-06 17:18:55,932 INFO send sms response: {'result': '21', 'desc': '数据包/短信内容为空'}
