@@ -59,32 +59,6 @@ def sms(request):
     :param request: ?username=wangkai
     :return: ok
     '''
-    try:
-        global alert_all
-        alert_all = json.loads(request.body.decode('utf-8'))
-        alert_app = alert_all['alerts'][0]['labels']['job']
-        alert_item = alert_all['alerts'][0]['labels']['alertname']
-        alert_instance = alert_all['alerts'][0]['labels']['instance']
-        alert_summary = alert_all['alerts'][0]['annotations']['summary']
-        alert_value = alert_all['alerts'][0]['annotations']['value']
-        alert_startsAt = alert_all['alerts'][0]['startsAt']
-        alert_endsAt = alert_all['alerts'][0]['endsAt']
-    except Exception as e:
-        print('Error:',e)
-        # print(alert_all)
-
-    else:
-        # 告警模板
-        global alert_msg
-        alert_msg = f'''
-        应用名称：{alert_app}
-        告警项目：{alert_item}
-        告警实例：{alert_instance}
-        告警描述：{alert_summary}
-        当前值：{alert_value}
-        开始时间: {alert_startsAt}
-        '''
-        print(alert_msg)
     # 获取姓名对应的手机号
     try:
         person = request.GET.get('username')
@@ -100,10 +74,41 @@ def sms(request):
     server = Server('ldap://dc-01.qdingnet.cn', port=389, get_info=ALL)
     # conn =Connection(server,'dc=qdingnet,dc=cn','admin',auto_bind=True)
     conn = Connection(server, user='itadmin', password='Aa123456789', auto_bind=True)
+    # 获取告警数据
+    alert_all = json.loads(request.body.decode('utf-8'))
+    print(alert_all,type(alert_all))
+    alert_num = len(alert_all['alerts'])
+    print(alert_num)
+    for i in alert_num:
+        try:
+            # global alert_all
+            alert_app = alert_all['alerts'][i]['labels']['job']
+            alert_item = alert_all['alerts'][i]['labels']['alertname']
+            alert_instance = alert_all['alerts'][i]['labels']['instance']
+            alert_summary = alert_all['alerts'][i]['annotations']['summary']
+            alert_value = alert_all['alerts'][i]['annotations']['value']
+            alert_startsAt = alert_all['alerts'][i]['startsAt']
+            alert_endsAt = alert_all['alerts'][i]['endsAt']
+        except Exception as e:
+            print('Error:',e)
+            # print(alert_all)
 
-    for tel_num in person_lst:
-        conn.search('dc=qdingnet,dc=cn', '(sAMAccountName={})'.format(tel_num), attributes=["telephoneNumber"])
-        phone = conn.entries[0].telephoneNumber
-        main(str(phone),alert_msg)
+        else:
+            # 告警模板
+            global alert_msg
+            alert_msg = f'''
+            应用名称：{alert_app}
+            告警项目：{alert_item}
+            告警实例：{alert_instance}
+            告警描述：{alert_summary}
+            当前值：{alert_value}
+            开始时间: {alert_startsAt}
+            '''
+            print(alert_msg)
+
+        for person in person_lst:
+            conn.search('dc=qdingnet,dc=cn', '(sAMAccountName={})'.format(person), attributes=["telephoneNumber"])
+            phone = conn.entries[0].telephoneNumber
+            main(str(phone),alert_msg)
 
     return HttpResponse('ok')
